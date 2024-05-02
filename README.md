@@ -10,6 +10,22 @@ apt install certbot python3-certbot-nginx
 
 git clone git@github.com:vmarunin/go-basic-2-webinar-10.git
 
+### Screen
+startup_message off
+defscrollback 102400
+hardstatus alwayslastline "%H %w"
+
+screen -t root 0 sudo su -
+screen -t u 1
+
+### .ssh/config
+Host *
+        ForwardAgent yes
+Host srv
+        User vmarunin
+        HostName 194.190.152.152
+        IdentityFile ~/.ssh/id_rsa
+
 ### Service
 
 sudo cp config/nginx/vmarunin2.viewdns.net.conf /etc/nginx/conf.d/
