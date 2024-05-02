@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"net/http/httputil"
 )
 
 func main() {
@@ -11,7 +12,9 @@ func main() {
 
 	helloHandler := func(w http.ResponseWriter, req *http.Request) {
 		log.Println("Requested path:", req.URL.Path)
+		data, _ := httputil.DumpRequest(req, true)
 		io.WriteString(w, "Hello, world!\n")
+		w.Write(data)
 	}
 
 	http.HandleFunc("/", helloHandler)

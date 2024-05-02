@@ -45,6 +45,7 @@ sleep 20, kill, echo $? = 137 = 128+9
 ## Files
 
 yes | head -n 2000000000 > big.txt
+lsof -p
 
 ## iptables
 
